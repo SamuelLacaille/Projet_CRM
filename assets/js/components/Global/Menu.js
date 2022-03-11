@@ -5,6 +5,14 @@ import logo from '../../../imgs/wp.svg';
 
 export default class Home extends Component {
     render() {
+        let role = '';
+        if (this.props.role === 'Admin') {
+            role =
+                <a href="#" className="nav_link">
+                    <FontAwesomeIcon icon="fa-solid fa-crown" />
+                    <span className="nav_name">Admin</span>
+                </a>;
+        }
         return (
             <div id="body-pd">
                 <header className="header" id="header">
@@ -35,6 +43,7 @@ export default class Home extends Component {
                                     <FontAwesomeIcon icon="fas fa-user" />
                                     <span className="nav_name">Employés</span>
                                 </a>
+                                {role}
                             </div>
                         </div>
                         <a href="#" className="nav_link">
