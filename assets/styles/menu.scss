@@ -2,10 +2,22 @@
   --header-height: 3rem;
   --nav-width: 68px;
   --first-color: #1D212D;
-  --first-color-light: #AFA5D9;
-  --white-color: #F7F6FB;
+  --first-color-light: white;
+  --yellow-color: #FFD831;
   --normal-font-size: 1rem;
   --z-fixed: 100
+}
+
+.text-yellow {
+  color: var(--yellow-color);
+}
+
+.bg-yellow {
+  background-color: var(--yellow-color);
+}
+
+img#logo {
+  height: 1.5em;
 }
 
 *,
@@ -36,7 +48,7 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  background-color: var(--white-color);
+  background-color: var(--yellow-color);
   z-index: var(--z-fixed);
   transition: .5s
 }
@@ -86,7 +98,7 @@ a {
   grid-template-columns: max-content max-content;
   align-items: center;
   column-gap: 1rem;
-  padding: .5rem 0 .5rem 1.5rem
+  padding: .5rem 0 .5rem 1.5rem;
 }
 
 .nav_logo {
@@ -95,11 +107,11 @@ a {
 
 .nav_logo-icon {
   font-size: 1.25rem;
-  color: var(--white-color)
+  color: var(--yellow-color)
 }
 
 .nav_logo-name {
-  color: var(--white-color);
+  color: var(--first-color-light);
   font-weight: 700
 }
 
@@ -111,7 +123,8 @@ a {
 }
 
 .nav_link:hover {
-  color: var(--white-color)
+  //voir couleur hover
+  color: var(--first-color-light)
 }
 
 .nav_icon {
@@ -127,7 +140,9 @@ a {
 }
 
 .active {
-  color: var(--white-color)
+  color: var(--first-color);
+  background-color: var(--yellow-color);
+
 }
 
 .active::before {
@@ -136,7 +151,7 @@ a {
   left: 0;
   width: 2px;
   height: 32px;
-  background-color: var(--white-color)
+  background-color: var(--yellow-color)
 }
 
 .height-100 {

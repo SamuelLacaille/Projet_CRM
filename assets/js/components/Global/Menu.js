@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../../menu';
+import logo from '../../../imgs/wp.svg';
 
 export default class Home extends Component {
     render() {
@@ -7,8 +9,7 @@ export default class Home extends Component {
             <div id="body-pd">
                 <header className="header" id="header">
                     <div className="header_toggle">
-                        {/*<i id="header-toggle" className="fa-solid fa-user"></i>*/}
-                        <p id="header-toggle">test</p>
+                        <FontAwesomeIcon id="header-toggle" icon="fa-solid fa-bars" />
                     </div>
                     {/*<div className="header_img"><img src="https://i.imgur.com/bt0bP22.png" alt=""></img></div>*/}
                 </header>
@@ -16,28 +17,30 @@ export default class Home extends Component {
                     <nav className="nav">
                         <div>
                             <a href="#" className="nav_logo">
-                                <i className='bx bx-layer nav_logo-icon'></i>
-                                <span className="nav_logo-name">WebPartner</span>
+                                <img id="logo" src={logo} alt="logo WebPartner"/>
+                                <span className="nav_logo-name">Web<span className="text-yellow">Partner</span></span>
                             </a>
                             <div className="nav_list">
                                 <a href="#" className="nav_link active">
-                                    <i className='bx bx-grid-alt nav_icon'></i>
+                                    <FontAwesomeIcon icon="fa-solid fa-table-columns" />
                                     <span className="nav_name">Dashboard</span>
                                 </a>
                                 <a href="#" className="nav_link">
-                                    <i className='bx bx-user nav_icon'></i>
+                                    <FontAwesomeIcon icon="fas fa-building" />
                                     <span className="nav_name">Clients</span> </a>
                                 <a href="#" className="nav_link">
-                                    <i className='bx bx-message-square-detail nav_icon'></i>
+                                    <FontAwesomeIcon icon="fas fa-users" />
                                     <span className="nav_name">Prospects</span> </a>
                                 <a href="#" className="nav_link">
-                                    <i className='bx bx-bookmark nav_icon'></i>
+                                    <FontAwesomeIcon icon="fas fa-user" />
                                     <span className="nav_name">Employés</span>
                                 </a>
                             </div>
                         </div>
-                        <a href="#" className="nav_link"> <i className='bx bx-log-out nav_icon'></i> <span
-                            className="nav_name">SignOut</span> </a>
+                        <a href="#" className="nav_link">
+                            <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
+                            <span className="nav_name">Déconnexion</span>
+                        </a>
                     </nav>
                 </div>
             </div>
