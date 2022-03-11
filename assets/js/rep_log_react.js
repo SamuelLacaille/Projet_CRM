@@ -6,15 +6,17 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faArrowRightFromBracket,
     faBars,
-    faBuilding,
+    faBuilding, faCrown,
     faTableColumns,
     faUser,
     faUsers
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFromBracket)
+library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFromBracket, faCrown)
+
+const role = 'Admin';
 
 render(
-    <Menu/>,
+    <Menu role={role}/>,
     document.getElementById('menu')
 );
