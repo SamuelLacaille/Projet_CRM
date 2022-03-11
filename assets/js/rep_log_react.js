@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Home from "./components/Home/Home";
 import Menu from "./components/Global/Menu";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,9 +14,7 @@ import {
 
 library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFromBracket)
 
-const heart = true;
-
 render(
     <Menu/>,
-    document.getElementById('test')
+    document.getElementById('menu')
 );
