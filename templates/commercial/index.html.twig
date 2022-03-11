@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello CommercialController!{% endblock %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+{% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    This friendly message is coming from:
+    <ul>
+        <li>Mes Clients</li>
+        <li>Mes prospects</li>
+        <li>Mon Calendrier</li>
+        <li>Mon Historique/Mes actions</li>
+    </ul>
+
+    <div id="calendrier"> 
+    </div>
+</div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+<script>
+        window.onload = () => {
+            let calendarElt = document.querySelector("#calendrier")
+
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                initialView: 'dayGridMonth',
+                locale: "fr",
+                code: "fr",
+                buttonText: {prev:"Précédent",next:"Suivant",today:"Aujourd'hui",year:"Année",month:"Mois",week:"Semaine",day:"Jour",list:"Mon planning"},
+                timeZone: "Europe/Paris",
+                headerToolbar: {
+                    start: "prev,next today",
+                    center: "title",
+                    end: "dayGridMonth,timeGridWeek",
+                    
+                }
+                
+            })
+
+            calendar.render()
+        }
+
+
+</script>
+
+
+{% endblock %}
