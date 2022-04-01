@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning index{% endblock %}
+
+{% block body %}
+    <h1>Planning index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>Description</th>
+                <th>JourComplet</th>
+                <th>EmailRdv</th>
+                <th>EmailCommercial</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for planning in plannings %}
+            <tr>
+                <td>{{ planning.id }}</td>
+                <td>{{ planning.titre }}</td>
+                <td>{{ planning.debut ? planning.debut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ planning.fin ? planning.fin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ planning.description }}</td>
+                <td>{{ planning.jourComplet ? 'Yes' : 'No' }}</td>
+                <td>{{ planning.emailRdv }}</td>
+                <td>{{ planning.emailCommercial }}</td>
+                <td>
+                    <a href="{{ path('calendrier_show', {'id': planning.id}) }}">show</a>
+                    <a href="{{ path('calendrier_edit', {'id': planning.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendrier_new') }}">Create new</a>
+{% endblock %}
