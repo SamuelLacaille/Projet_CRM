@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
+
+// voir ce qu'est un EventSUbscriber, comprendre et expliquer
 class EasyAdminSubscriber implements EventSubscriberInterface
 {
 
