@@ -13,6 +13,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
-.idea
 composer.lock
 symfony.lock
+.env
+.idea/*
