@@ -4,14 +4,52 @@
 
 {% block body %}
     
-        
-           <p>{{ devis.nomClient }}</p>
+        <!-- devis n° 0000  -->
+        <h2> Devis N° {{ random() }} </h2>
+
+        <!-- notre logo en haut à droite -->
+        <p>date : {{ "" }}</p>
+          <!-- nom du client + de la boite -->
+       <p>{{ devis.nomClient }}</p>
            <p>{{ devis.nomSociete }}</p>
-           <p>{{  devis.siret }}</p>
-           <p>{{  devis.nomProduit }}</p>
-           <p>{{  devis.quantite }}</p>
-           <p>{{ devis.prixTtc }}</p>
+                 <p>{{  devis.siret }}</p>
+
+
+
+            <!-- tableau avec quantite | nomProduit | prixttc -->
+    <table>
+     <thead>
+            <tr>
+                <th>Quantité</th>
+                <th>Nom Produit</th>
+                <th>Prix TTC €</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+           <td>{{ devis.quantite }}</td>
+           <td>{{ devis.nomProduit }}</td>
+           <td>{{ devis.prixTtc }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+             <!-- case bas à droite total -->
+             <p> Total TTC en €    {{ devis.prixTtc * devis.quantite }}  </p>
   
+    <!-- condition général de vente -->
+
+    <p> 
+    En cas d’acceptation du devis, le client s’engage à verser les sommes suivantes : 
+    <br>
+    - acompte avant début de prestation de 60% : soit {{devis.prixTtc * devis.quantite *0.6}} € TTC
+<br>
+    - solde à la fin de la prestation de 40% :  soit {{devis.prixTtc * devis.quantite *0.4}} € TTC
+<br>
+    Les règlements s’effectueront par virement bancaire.
+    La facturation démarrera à la signature du bon de commande. 
+    </p>
+      <!-- signature elec -->
 
 <button> Export en PDF </button>
  <!-- btn generer pdf -->
