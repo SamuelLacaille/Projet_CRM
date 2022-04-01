@@ -19,7 +19,7 @@ export default class Home extends Component {
                     <div className="header_toggle">
                         <FontAwesomeIcon id="header-toggle" icon="fa-solid fa-bars" />
                     </div>
-                    {/*<div className="header_img"><img src="https://i.imgur.com/bt0bP22.png" alt=""></img></div>*/}
+                    <div className="header_img"><img src={'https://ui-avatars.com/api/?name=' + 'user name' + '&background=fff&color=000'} alt=""></img></div>
                 </header>
                 <div className="l-navbar" id="nav-bar">
                     <nav className="nav">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Menu from "./components/Global/Menu";
+import Home from "./components/Home/Home";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -18,6 +18,11 @@ library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFro
 const role = 'Admin';
 
 render(
-    <Menu role={role}/>,
-    document.getElementById('menu')
+    <Home role={role}/>,
+    document.getElementById('home')
 );
+
+// render(
+//     <Table />,
+//     document.getElementById('showtable')
+// );
