@@ -6,7 +6,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faArrowRightFromBracket,
     faBars,
-    faBuilding, faCrown,
+    faBuilding,
+    faCrown,
     faTableColumns,
     faUser,
     faUsers
