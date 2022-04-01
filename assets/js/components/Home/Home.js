@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import Menu from "../Global/Menu";
+import Table from "../Global/Table";
 
 export default class Home extends Component {
     render() {
-        let heart = '';
-        if (this.props.heart) {
-            heart = <span>❤️ </span>;
-        };
         return (
-            <h2>Test {heart}</h2>
+            <div>
+                <Menu role=''/>
+                <h1 className="pt-3 pb-3">Dashboard</h1>
+
+            </div>
+
         );
     }
 }
