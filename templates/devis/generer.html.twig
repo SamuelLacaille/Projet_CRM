@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DEVIS{% endblock %}
+
+{% block body %}
+    
+        
+           <p>{{ devis.nomClient }}</p>
+           <p>{{ devis.nomSociete }}</p>
+           <p>{{  devis.siret }}</p>
+           <p>{{  devis.nomProduit }}</p>
+           <p>{{  devis.quantite }}</p>
+           <p>{{ devis.prixTtc }}</p>
+  
+
+<button> Export en PDF </button>
+ <!-- btn generer pdf -->
+{% endblock %}

@@ -16,10 +16,13 @@ class DevisType extends AbstractType{
         $builder
             ->add('nomClient')
             ->add('nomSociete')
+            ->add('siret')
             ->add('nomProduit')
             ->add('quantite')
             ->add('prixTtc')
             ;
+
+            
     }
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -32,6 +32,11 @@ class Devis
      */
     private $nomProduit;
 
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $siret;
+
     /**
      * @ORM\Column(type="integer")
      */
@@ -51,6 +56,14 @@ class Devis
     {
         return $this->nomSociete;
     }
+
+
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
 
     public function setNomSociete(string $nomSociete): self
     {
@@ -82,6 +95,15 @@ class Devis
 
         return $this;
     }
+
+
+    public function setSiret(string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
 
     public function getQuantite(): ?int
     {
