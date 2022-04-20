@@ -1,0 +1,92 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+
+       
+           
+        
+
+<!-- bloc client -->
+<div class="client">
+{{devis.nom}} 
+<br>
+{{devis.prenom}}
+<br>
+{{devis.societe}}
+<br>
+{{devis.adresse}}
+<br>
+tel : {{devis.telephone}}
+<br>
+siret : {{devis.siret}}
+</div>
+
+
+<h1>Devis N° {{ random() }}</h1>
+
+<h3> Création de site web </h3>
+<!-- bloc webPartner logo no adresse etc -->
+
+
+<div class="webpartner">
+<p>WebPartner</p>
+<p>30 Pl. Henri Gadeau de Kerville, 76100 <br>
+Rouen</p>
+
+
+
+
+</div>
+
+<!-- bloc presta -->
+
+<table class="presta">
+
+
+    <tr id="head">
+        <td>Description</td>
+        <td>Quantité</td>
+        <td>Prix HT €</td>
+        <td>Prix TTC €</td>
+         <td> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> {{devis.produit}} </td>
+        <td> {{devis.quantiteProduit}} </td>
+        <td> {{devis.TotalHT}} </td>
+        <td> {{devis.TotalTTC}} </td>
+         <td> </td>
+        <td> </td>
+    </tr>
+     <tr>
+        <td> </td>
+        <td> </td>
+         <td> </td>
+        <td> </td>
+        <td> Total HT : {{devis.TotalHT}} €</td>
+        <td> Total TTC : {{devis.TotalTTC}} €</td>
+    </tr>
+     
+
+
+</table>
+
+
+       <hr>
+      <p>Fait a Rouen, le {{ "now"|date("m/d/Y") }}</p>
+ 
+ 
+ 
+ 
+ <style>
+                .webPartner { text-align: right; }
+                #head { color : white; background-color : black; }
+                table { text-align : center; width : 80%; }
+                .client { text-align: left;  margin-left : 15px;}
+                h1, h3 { margin-left : 50px }
+</style>
+
+{% endblock %}

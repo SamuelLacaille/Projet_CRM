@@ -77,6 +77,9 @@
     "doctrine/sql-formatter": {
         "version": "1.1.2"
     },
+    "dompdf/dompdf": {
+        "version": "v1.2.1"
+    },
     "easycorp/easyadmin-bundle": {
         "version": "3.5",
         "recipe": {
@@ -85,8 +88,6 @@
             "version": "3.0",
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
-    "dompdf/dompdf": {
-        "version": "v1.2.1"
     },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
