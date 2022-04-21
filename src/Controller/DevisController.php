@@ -59,7 +59,8 @@ $dompdf->stream();
             $entityManager->persist($devis);
             $entityManager->flush();
 
-            return $this->redirectToRoute('calendrier_index', [], Response::HTTP_SEE_OTHER);
+          //  return $this->redirectToRoute('/showDevis/{devis.id}', [], Response::HTTP_SEE_OTHER);
+          return $this->redirectToRoute('devis_show', ['id' => $devis->getId()], Response::HTTP_SEE_OTHER);
 
             // processe avec envoi du pdf + possibilité de payer
             // enregistrement du client dans une base client
