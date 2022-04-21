@@ -39,7 +39,7 @@ export default class Home extends Component {
                                 <a href="#" className="nav_link">
                                     <FontAwesomeIcon icon="fas fa-building" />
                                     <span className="nav_name">Clients</span> </a>
-                                <a href="#" className="nav_link">
+                                <a href="/prospect" className="nav_link">
                                     <FontAwesomeIcon icon="fas fa-users" />
                                     <span className="nav_name">Prospects</span> </a>
                                 <a href="#" className="nav_link">
