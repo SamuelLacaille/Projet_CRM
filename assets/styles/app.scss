@@ -1,2 +1,35 @@
 @import '~bootstrap/scss/bootstrap';
 @import "menu";
+@import 'tables';
+
+:root {
+  --header-height: 3rem;
+  --nav-width: 68px;
+  --first-color: #1D212D;
+  --first-color-light: white;
+  --yellow-color: #FFD831;
+  --normal-font-size: 1rem;
+  --z-fixed: 100
+}
+
+a.customButton {
+  background-color: var(--yellow-color);
+  padding: 0.5rem 1rem;
+  color: var(--first-color);
+  font-weight: bold;
+  border-radius: 25px;
+  margin-top: 1.5rem;
+}
+
+a.customButton#back {
+  background-color: red;
+  color: white;
+}
+
+button.customButton {
+  background-color: var(--yellow-color);
+  padding: 0.5rem 1rem;
+  color: var(--first-color);
+  font-weight: bold;
+  border-radius: 25px;
+}

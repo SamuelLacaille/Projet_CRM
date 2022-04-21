@@ -8,7 +8,7 @@ export default class Home extends Component {
             <div>
                 <Menu role=''/>
                 <h1 className="pt-3 pb-3">Dashboard</h1>
-
+                {/*<Table />*/}
             </div>
 
         );

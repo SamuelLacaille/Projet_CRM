@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Utilisateur index{% endblock %}
+{% block title %}Employés{% endblock %}
 
 {% block body %}
-
-    <table class="table">
+    <div id="utilisateur"></div>
+    <a class="customButton" href="{{ path('utilisateur_new') }}">Créer un nouvel employé</a>
+    <table class="table" style="margin-top: 1.5rem;">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Email</th>
                 <th>Roles</th>
-                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,10 +20,9 @@
                 <td>{{ utilisateur.id }}</td>
                 <td>{{ utilisateur.email }}</td>
                 <td>{{ utilisateur.roles ? utilisateur.roles|json_encode : '' }}</td>
-                <td>{{ utilisateur.password }}</td>
                 <td>
-                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}">show</a>
-                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
+                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" alt="edit icon" style="width: 1rem"></a>
+                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="show icon" style="width: 1rem; margin-left: 1rem;"></a>
                 </td>
             </tr>
         {% else %}
@@ -33,8 +32,6 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('utilisateur_new') }}">Create new</a>
 {% endblock %}
 
 {% block javascripts %}
