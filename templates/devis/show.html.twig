@@ -1,0 +1,93 @@
+{% block title %}{% endblock %}
+
+{% block body %}
+
+
+
+       
+           
+        
+
+<!-- bloc client -->
+<div class="client">
+{{devis.nom}} 
+<br>
+{{devis.prenom}}
+<br>
+{{devis.societe}}
+<br>
+{{devis.adresse}}
+<br>
+tel : {{devis.telephone}}
+<br>
+siret : {{devis.siret}}
+</div>
+
+
+
+<!-- bloc webPartner logo no adresse etc -->
+
+
+<div class="webpartner">
+<p>WebPartner</p>
+<p><img src="{{ asset("https://github.com/SamuelLacaille/Projet_CRM/blob/feature/devis/assets/imgs/Plan_de_travail_1.png") }} "/> </p>
+<p>30 Pl. Henri Gadeau de Kerville, 76100 <br>
+Rouen</p>
+
+
+
+
+</div>
+<h1>Devis N° {{ random() }}</h1>
+
+<h3> Création de site web </h3>
+<!-- bloc presta -->
+
+<table class="presta">
+
+
+    <tr id="head">
+        <td>Description</td>
+        <td>Quantité</td>
+        <td>Prix HT €</td>
+        <td>Prix TTC €</td>
+         <td> </td>
+        <td> </td>
+    </tr>
+    <tr>
+        <td> {{devis.produit}} </td>
+        <td> {{devis.quantiteProduit}} </td>
+        <td> {{devis.TotalHT}} </td>
+        <td> {{devis.TotalTTC}} </td>
+         <td> </td>
+        <td> </td>
+    </tr>
+     <tr>
+        <td> </td>
+        <td> </td>
+         <td> </td>
+        <td> </td>
+        <td> Total HT : {{devis.quantiteProduit * devis.TotalHT}} €</td>
+        <td> Total TTC : {{devis.quantiteProduit * devis.TotalHT * 1.2}} €</td>
+    </tr>
+     
+
+
+</table>
+
+
+       <hr>
+      <p>Fait à Rouen, le {{ "now"|date("m/d/Y") }}</p>
+ 
+ 
+ 
+ 
+ <style>
+                .webPartner { display: inline-block; width: 40%; height: 200px;margin-left: 2000px; }
+                #head { color : white; background-color : black; }
+                table { text-align : center; width : 80%; }
+                .client { display: inline-block; width: 40% ;margin-right: 70%;margin-top: 50px ;margin-left: 50px;}
+                h1, h3 { margin-left : 50px }
+</style>
+
+{% endblock %}
