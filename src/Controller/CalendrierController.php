@@ -39,7 +39,7 @@ class CalendrierController extends AbstractController
             $entityManager->persist($planning);
             $entityManager->flush();
 
-            return $this->redirectToRoute('calendrier_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('commercial', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('calendrier/new.html.twig', [

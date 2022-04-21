@@ -22,7 +22,7 @@ export default class Home extends Component {
                     <div className="header_toggle">
                         <FontAwesomeIcon id="header-toggle" icon="fa-solid fa-bars" />
                     </div>
-                    <div className="header_img"><img src={'https://ui-avatars.com/api/?name=' + 'Antoine Ratieuville' + '&background=fff&color=000&bold=true'} alt=""></img></div>
+                    <div className="header_img"><img src={''} alt=""></img></div>
                 </header>
                 <div className="l-navbar" id="nav-bar">
                     <nav className="nav">
@@ -32,7 +32,7 @@ export default class Home extends Component {
                                 <span className="nav_logo-name">Web<span className="text-yellow">Partner</span></span>
                             </a>
                             <div className="nav_list">
-                                <a href="/" className={`nav_link ${this.props.dashboard ? "active" : ""}`}>
+                                <a href="/commercial" className={`nav_link ${this.props.dashboard ? "active" : ""}`}>
                                     <FontAwesomeIcon icon="fa-solid fa-table-columns" />
                                     <span className="nav_name">Dashboard</span>
                                 </a>
@@ -42,14 +42,18 @@ export default class Home extends Component {
                                 <a href="#" className="nav_link">
                                     <FontAwesomeIcon icon="fas fa-users" />
                                     <span className="nav_name">Prospects</span> </a>
-                                <a href="/utilisateur" className={`nav_link ${this.props.employe ? "active" : ""}`}>
-                                    <FontAwesomeIcon icon="fas fa-user" />
-                                    <span className="nav_name">Employés</span>
+                                <a href="#" className="nav_link">
+                                <FontAwesomeIcon icon="fas fa-history" />
+                                    <span className="nav_name">Historique</span>
                                 </a>
+
+                                <a href="/newDevis" className="nav_link">
+                                <FontAwesomeIcon icon="fa-solid fa-circle-dollar-to-slot" />
+                                    <span className="nav_name">Devis</span> </a>
                                 {role}
                             </div>
                         </div>
-                        <a href="#" className="nav_link">
+                        <a href="/" className="nav_link">
                             <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
                             <span className="nav_name">Déconnexion</span>
                         </a>
