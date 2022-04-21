@@ -62,10 +62,7 @@ $dompdf->stream();
           //  return $this->redirectToRoute('/showDevis/{devis.id}', [], Response::HTTP_SEE_OTHER);
           return $this->redirectToRoute('devis_show', ['id' => $devis->getId()], Response::HTTP_SEE_OTHER);
 
-            // processe avec envoi du pdf + possibilité de payer
-            // enregistrement du client dans une base client
-            // ajouter siret + ajout presta dynamique
-            // les prix dynamiques + ttc + ht
+            
         }
 
         return $this->renderForm('devis/new.html.twig', [
@@ -98,7 +95,7 @@ $dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
 ob_get_clean();
 // Output the generated PDF to Browser
-$dompdf->stream();
+//$dompdf->stream();
 
 
 
