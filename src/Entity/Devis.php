@@ -39,7 +39,7 @@ class Devis
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $societe;
+    public $societe;
 
     
     /**

@@ -32,20 +32,20 @@
                 <td>{{ prospect.adresse }}</td>
                 <td>{{ prospect.siret }}</td>
                 <td>
-                    <a href="{{ path('prospect_show', {'id': prospect.id}) }}">show</a>
-                    <a href="{{ path('prospect_edit', {'id': prospect.id}) }}">edit</a>
+                    <a href="{{ path('prospect_show', {'id': prospect.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" alt="edit icon" style="width: 1rem"></a>
+                    <a href="{{ path('prospect_edit', {'id': prospect.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="show icon" style="width: 1rem; margin-left: 1rem;"></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="9">Aucun prospect trouvé, commencez pas créer ou importer un prospect.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('prospect_new') }}">Créer un prospect</a>
-    <button>Importer Prospect</button>
+    <a class="customButton" href="{{ path('prospect_new') }}">Créer un prospect</a>
+    <button class="customButton">Importer un prospect</button>
 {% endblock %}
 
 

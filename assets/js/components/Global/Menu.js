@@ -32,7 +32,7 @@ export default class Home extends Component {
                                 <span className="nav_logo-name">Web<span className="text-yellow">Partner</span></span>
                             </a>
                             <div className="nav_list">
-                                <a href="/commercial" className={`nav_link ${this.props.dashboard ? "active" : ""}`}>
+                                <a href="/commercial" className="nav_link">
                                     <FontAwesomeIcon icon="fa-solid fa-table-columns" />
                                     <span className="nav_name">Dashboard</span>
                                 </a>
@@ -43,17 +43,20 @@ export default class Home extends Component {
                                     <FontAwesomeIcon icon="fas fa-users" />
                                     <span className="nav_name">Prospects</span> </a>
                                 <a href="/ticket" className="nav_link">
-                                <FontAwesomeIcon icon="fas fa-history" />
+
+
+                                <FontAwesomeIcon icon="fas fa-clock" />
+
                                     <span className="nav_name">Historique</span>
                                 </a>
-
                                 <a href="/newDevis" className="nav_link">
-                                <FontAwesomeIcon icon="fa-solid fa-circle-dollar-to-slot" />
-                                    <span className="nav_name">Devis</span> </a>
+                                <FontAwesomeIcon icon="fa-solid fa-file-pdf" />
+                                    <span className="nav_name">Devis</span>
+                                </a>
                                 {role}
                             </div>
                         </div>
-                        <a href="/" className="nav_link">
+                        <a href="/logout" className="nav_link">
                             <FontAwesomeIcon icon="fa-solid fa-arrow-right-from-bracket" />
                             <span className="nav_name">Déconnexion</span>
                         </a>
