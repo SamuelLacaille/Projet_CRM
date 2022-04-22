@@ -36,7 +36,7 @@ export default class Home extends Component {
                                     <FontAwesomeIcon icon="fa-solid fa-table-columns" />
                                     <span className="nav_name">Dashboard</span>
                                 </a>
-                                <a href="#" className="nav_link">
+                                <a href="/client" className="nav_link">
                                     <FontAwesomeIcon icon="fas fa-building" />
                                     <span className="nav_name">Clients</span> </a>
                                 <a href="/prospect" className="nav_link">
