@@ -10,6 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Ticket;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @Route("/calendrier")
@@ -29,11 +32,22 @@ class CalendrierController extends AbstractController
     /**
      * @Route("/new", name="calendrier_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): Response
     {
         $planning = new Planning();
         $form = $this->createForm(PlanningType::class, $planning);
         $form->handleRequest($request);
+
+
+        $entityManager = $doctrine->getManager();
+        $date = new DateTime();
+        $ticket = new Ticket();
+        $ticket->setHeure(new \DateTime());
+        $ticket->setEvent("Nouveau Rendez-vous");
+        
+        $entityManager->persist($ticket);
+        $entityManager->flush();
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($planning);
@@ -41,6 +55,7 @@ class CalendrierController extends AbstractController
 
             return $this->redirectToRoute('commercial', [], Response::HTTP_SEE_OTHER);
         }
+
 
         return $this->renderForm('calendrier/new.html.twig', [
             'planning' => $planning,
