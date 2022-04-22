@@ -104,12 +104,15 @@ class UtilisateurController extends AbstractController
     /**
      * @Route("/{id}/edit", name="utilisateur_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Utilisateur $utilisateur, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Utilisateur $utilisateur, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $utilisateur->setPassword(
+                $passwordEncoder->encodePassword($utilisateur, $utilisateur->getPassword()));
             $entityManager->flush();
 
             return $this->redirectToRoute('utilisateur_index', [], Response::HTTP_SEE_OTHER);
