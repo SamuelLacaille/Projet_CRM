@@ -43,7 +43,10 @@ export default class Home extends Component {
                                     <FontAwesomeIcon icon="fas fa-users" />
                                     <span className="nav_name">Prospects</span> </a>
                                 <a href="/ticket" className="nav_link">
+
+
                                 <FontAwesomeIcon icon="fas fa-clock" />
+
                                     <span className="nav_name">Historique</span>
                                 </a>
                                 <a href="/newDevis" className="nav_link">

@@ -18,7 +18,7 @@
         {% for ticket in tickets %}
             <tr>
                 <td>{{ ticket.id }}</td>
-                <td>{{ ticket.heure }}</td>
+                <td>{{ ticket.heure ? ticket.heure|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ ticket.event }}</td>
             </tr>
         {% else %}

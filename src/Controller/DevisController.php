@@ -14,6 +14,11 @@ use App\Repository\DevisRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+
+use App\Entity\Ticket;
+
 
 class DevisController extends AbstractController
 {
@@ -78,8 +83,20 @@ $dompdf->stream();
     /**
      * @Route("/showDevis/{id}", name="devis_show")
      */
-    public function show(Devis $devis): Response
+    public function show(Devis $devis, ManagerRegistry $doctrine): Response
     {
+
+
+        $entityManager = $doctrine->getManager();
+        $date = new DateTime();
+        $ticket = new Ticket();
+        $ticket->setHeure(new \DateTime());
+        $ticket->setEvent("Nouveau Devis");
+        
+        $entityManager->persist($ticket);
+        $entityManager->flush();
+        
+
 
 // instantiate and use the dompdf class
 $options = new Options();
@@ -99,16 +116,8 @@ ob_get_clean();
 // Output the generated PDF to Browser
 $dompdf->stream("devis " . $devis->societe . ".pdf");
 
-/*
-$entityManager = $doctrine->getManager();
 
-$ticket = new Ticket();
-$ticket->setHeure(date("m/d/Y- H:i:s"));
-$ticket->setEvent("Nouveau Devis");
 
-$entityManager->persist($ticket);
-$entityManager->flush();
-*/
         return $this->render('devis/show.html.twig', [
             'devis' => $devis,
         ]);

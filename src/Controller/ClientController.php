@@ -11,7 +11,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Validator\Constraints\DateTime;
 
+
+use App\Entity\Ticket;
 
 /**
  * @Route("/client")
@@ -50,11 +54,23 @@ class ClientController extends AbstractController
     /**
      * @Route("/new", name="client_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ManagerRegistry $doctrine): Response
     {
         $client = new Client();
         $form = $this->createForm(ClientType::class, $client);
         $form->handleRequest($request);
+
+
+
+        $entityManager = $doctrine->getManager();
+        $date = new DateTime();
+        $ticket = new Ticket();
+        $ticket->setHeure(new \DateTime());
+        $ticket->setEvent("Nouveau Client ");
+        
+        $entityManager->persist($ticket);
+        $entityManager->flush();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
