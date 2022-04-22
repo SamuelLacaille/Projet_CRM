@@ -32,8 +32,8 @@
                 <td>{{ client.adresse }}</td>
                 <td>{{ client.siret }}</td>
                 <td>
-                    <a href="{{ path('client_show', {'id': client.id}) }}">show</a>
-                    <a href="{{ path('client_edit', {'id': client.id}) }}">edit</a>
+                    <a href="{{ path('client_edit', {'id': client.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" alt="edit icon" style="width: 1rem"></a>
+                    <a href="{{ path('client_show', {'id': client.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="show icon" style="width: 1rem; margin-left: 1rem;"></a>
                 </td>
             </tr>
         {% else %}
@@ -44,8 +44,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('client_new') }}">Créer un client</a>
-    <button>Importer client</button>
+    <a class="customButton" href="{{ path('client_new') }}">Créer un client</a>
+    <button class="customButton">Importer client</button>
 {% endblock %}
 
 
