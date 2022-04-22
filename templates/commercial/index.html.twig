@@ -2,10 +2,10 @@
 
 
 
-{% block title %}Hello CommercialController!{% endblock %}
-
+{% block title %}Mon agenda{% endblock %}
 
 {% block body %}
+    <div id="home"></div>
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
@@ -13,22 +13,15 @@
 
 <div class="example-wrapper">
  
-{% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-    This friendly message is coming from:
-    <ul>
-        <li>Mes Clients</li>
-        <li>Mes prospects</li>
-        <li>Mon Calendrier</li>
-        <li>Mon Historique/Mes actions</li>
-    </ul>
-
-    {{dump(data)}}
-    <div id="calendrier"> 
+{#{% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            Vous êtes connecté avec {{ app.user.username }}#}
+{#        </div>#}
+{#    {% endif %}#}
+    <div id="calendrier" style="margin-top: 8rem;">
     </div>
+
+    <button class="customButton" style="margin-top: 2rem;"><a href="/calendrier/new" style="color: #1D212D;">Ajouter un Rendez-vous</a></button>
 </div>
 {% endblock %}
 
@@ -84,5 +77,6 @@
 
 </script>
 
-
+    {{ encore_entry_script_tags('rep_log_react') }}
 {% endblock %}
+

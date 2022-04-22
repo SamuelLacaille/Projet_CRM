@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client index{% endblock %}
+
+{% block body %}
+    <div id="utilisateur"></div>
+    <h1>Mes Clients</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>prenom</th>
+                <th>email</th>
+                <th>societe</th>
+                <th>telephone</th>
+                <th>adresse</th>
+                <th>siret</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.societe }}</td>
+                <td>{{ client.telephone }}</td>
+                <td>{{ client.adresse }}</td>
+                <td>{{ client.siret }}</td>
+                <td>
+                    <a href="{{ path('client_edit', {'id': client.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/860/860814.png" alt="edit icon" style="width: 1rem"></a>
+                    <a href="{{ path('client_show', {'id': client.id}) }}"><img src="https://cdn-icons-png.flaticon.com/512/159/159604.png" alt="show icon" style="width: 1rem; margin-left: 1rem;"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun client pour le moment.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="customButton" href="{{ path('client_new') }}">Créer un client</a>
+    <button class="customButton">Importer client</button>
+{% endblock %}
+
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('rep_log_react') }}
+{% endblock %}

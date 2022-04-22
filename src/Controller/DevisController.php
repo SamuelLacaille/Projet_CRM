@@ -5,8 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Devis;
+use App\Repository\TicketRepository;
+use App\Form\DevisType;
+use App\Repository\DevisRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Doctrine\Persistence\ManagerRegistry;
 
 class DevisController extends AbstractController
 {
@@ -38,4 +45,73 @@ $dompdf->stream();
             'controller_name' => 'DevisController',
         ]);
     }
+
+
+
+  /**
+     * @Route("/newDevis", name="devis_new", methods={"GET", "POST"})
+     */
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $devis = new Devis();
+        $form = $this->createForm(DevisType::class, $devis);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($devis);
+            $entityManager->flush();
+
+          //  return $this->redirectToRoute('/showDevis/{devis.id}', [], Response::HTTP_SEE_OTHER);
+          return $this->redirectToRoute('devis_show', ['id' => $devis->getId()], Response::HTTP_SEE_OTHER);
+
+            
+        }
+
+        return $this->renderForm('devis/new.html.twig', [
+            'devis' => $devis,
+            'form' => $form,
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/showDevis/{id}", name="devis_show")
+     */
+    public function show(Devis $devis): Response
+    {
+
+// instantiate and use the dompdf class
+$options = new Options();
+$options->set('defaultFont', 'Courier');
+$dompdf = new Dompdf($options);
+
+$dompdf->loadHtml( $this->render('devis/show.html.twig', [
+    'devis' => $devis,
+]));
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'landscape');
+
+// Render the HTML as PDF
+$dompdf->render();
+ob_get_clean();
+// Output the generated PDF to Browser
+$dompdf->stream("devis " . $devis->societe . ".pdf");
+
+/*
+$entityManager = $doctrine->getManager();
+
+$ticket = new Ticket();
+$ticket->setHeure(date("m/d/Y- H:i:s"));
+$ticket->setEvent("Nouveau Devis");
+
+$entityManager->persist($ticket);
+$entityManager->flush();
+*/
+        return $this->render('devis/show.html.twig', [
+            'devis' => $devis,
+        ]);
+    
+}
 }

@@ -1,4 +1,7 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div>
+        <button class="btn customButton">{{ button_label|default('Créer') }}</button>
+        <a class="customButton" id="back" href="{{ path('utilisateur_index') }}">Retour</a>
+    </div>
 {{ form_end(form) }}

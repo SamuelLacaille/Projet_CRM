@@ -7,6 +7,7 @@ use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,6 +26,25 @@ class UtilisateurController extends AbstractController
         return $this->render('utilisateur/index.html.twig', [
             'utilisateurs' => $utilisateurRepository->findAll(),
         ]);
+    }
+
+    /**
+     * @Route("/api", name="getUtilisateurs")
+     */
+
+    public function getUtilisateurs() : JsonResponse {
+        $utilisateurs= $this->getDoctrine()->getRepository(Utilisateur::class);
+        $utilisateurs= $utilisateurs->findAll();
+        if (!$utilisateurs) {
+            return new JsonResponse("Page does not exist", 404);
+        } else {
+            $data = [
+                'id' => $utilisateurs->getId(),
+                'email' => $utilisateurs->getEmail(),
+                'roles' => $utilisateurs->getRoles(),
+            ];
+            return new JsonResponse($data, Response::HTTP_OK);
+        }
     }
 
     /**
@@ -61,6 +81,25 @@ class UtilisateurController extends AbstractController
             'utilisateur' => $utilisateur,
         ]);
     }
+
+    /**
+     * @Route("/api/{id}", name="getUtilisateur")
+    */
+
+    public function getUtilisateur($id) : JsonResponse {
+    $utilisateur= $this->getDoctrine()->getRepository(Utilisateur::class);
+    $utilisateur= $utilisateur->find($id);
+    if (!$utilisateur) {
+    return new JsonResponse("Page does not exist", 404);
+    } else {
+        $data = [
+            'id' => $utilisateur->getId(),
+            'email' => $utilisateur->getEmail(),
+            'roles' => $utilisateur->getRoles(),
+        ];
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+}
 
     /**
      * @Route("/{id}/edit", name="utilisateur_edit", methods={"GET", "POST"})
