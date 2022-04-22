@@ -23,9 +23,9 @@ class Devis
     private $nom;
 
     
-    /**
+   /**
      * @ORM\Column(type="string", length=255)
-     */
+     */ 
     private $prenom;
 
 
