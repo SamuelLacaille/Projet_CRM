@@ -8,7 +8,6 @@
 
 #Installation Stripe (payment method)
 - créer un compte sur https://stripe.com/fr
-- composer require stripe/stripe-php
 - en local la clé API se trouve dans .env.local
 - cette clé est bind dans config/services.yarl
 
