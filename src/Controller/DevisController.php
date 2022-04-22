@@ -95,7 +95,7 @@ $dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
 ob_get_clean();
 // Output the generated PDF to Browser
-$dompdf->stream();
+$dompdf->stream("devis " . $devis->societe . ".pdf");
 
 
 

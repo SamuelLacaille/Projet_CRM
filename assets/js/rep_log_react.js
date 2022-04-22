@@ -9,14 +9,16 @@ import {
     faArrowRightFromBracket,
     faBars,
     faBuilding,
+    faClock,
     faCrown,
     faEllipsisV,
+    faFilePdf,
     faTableColumns,
     faUser,
     faUsers
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFromBracket, faCrown, faEllipsisV)
+library.add(faBars, faTableColumns, faUser, faUsers, faBuilding, faArrowRightFromBracket, faCrown, faEllipsisV, faClock, faFilePdf)
 
 const role = 'Admin';
 

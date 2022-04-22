@@ -13,15 +13,15 @@
 
 <div class="example-wrapper">
  
-{% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté avec {{ app.user.username }}
-        </div>
-    {% endif %}
-    <div id="calendrier"> 
+{#{% if app.user %}#}
+{#        <div class="mb-3">#}
+{#            Vous êtes connecté avec {{ app.user.username }}#}
+{#        </div>#}
+{#    {% endif %}#}
+    <div id="calendrier" style="margin-top: 8rem;">
     </div>
 
-    <button class="btn btn-lg" ><a href="/calendrier/new">Ajouter un Rendez-vous</a></button>
+    <button class="customButton" style="margin-top: 2rem;"><a href="/calendrier/new" style="color: #1D212D;">Ajouter un Rendez-vous</a></button>
 </div>
 {% endblock %}
 

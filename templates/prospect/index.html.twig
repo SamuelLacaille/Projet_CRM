@@ -38,14 +38,14 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="9">Aucun prospect trouvé, commencez pas créer ou importer un prospect</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('prospect_new') }}">Créer un prospect</a>
-    <button>Importer Prospect</button>
+    <a class="customButton" href="{{ path('prospect_new') }}">Créer un prospect</a>
+    <button class="customButton">Importer un prospect</button>
 {% endblock %}
 
 
