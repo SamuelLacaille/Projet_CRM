@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Client{% endblock %}
+
+{% block body %}
+    <div id="utilisateur"></div>
+    <h1>Editer Client</h1>
+
+    {{ include('client/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('client_index') }}">Retour à la liste</a>
+
+    {{ include('client/_delete_form.html.twig') }}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('rep_log_react') }}
+{% endblock %}
