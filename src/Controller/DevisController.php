@@ -8,10 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Devis;
+use App\Repository\TicketRepository;
 use App\Form\DevisType;
 use App\Repository\DevisRepository;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Doctrine\Persistence\ManagerRegistry;
 
 class DevisController extends AbstractController
 {
@@ -97,9 +99,16 @@ ob_get_clean();
 // Output the generated PDF to Browser
 $dompdf->stream();
 
+/*
+$entityManager = $doctrine->getManager();
 
+$ticket = new Ticket();
+$ticket->setHeure(date("m/d/Y- H:i:s"));
+$ticket->setEvent("Nouveau Devis");
 
-
+$entityManager->persist($ticket);
+$entityManager->flush();
+*/
         return $this->render('devis/show.html.twig', [
             'devis' => $devis,
         ]);
