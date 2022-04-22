@@ -42,11 +42,8 @@
             </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('prospect_index') }}">retour à la liste</a>
-
-    <a href="{{ path('prospect_edit', {'id': prospect.id}) }}">editer</a>
-
+    <a class="customButton" href="{{ path('prospect_edit', {'id': prospect.id}) }}">Modifier</a>
+    <a class="customButton" id="back" href="{{ path('prospect_index') }}">Retour à la liste</a>
     {{ include('prospect/_delete_form.html.twig') }}
 {% endblock %}
 

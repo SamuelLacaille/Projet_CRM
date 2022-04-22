@@ -32,7 +32,7 @@ export default class Home extends Component {
                                 <span className="nav_logo-name">Web<span className="text-yellow">Partner</span></span>
                             </a>
                             <div className="nav_list">
-                                <a href="/commercial" className={`nav_link ${this.props.dashboard ? "active" : ""}`}>
+                                <a href="/commercial" className="nav_link">
                                     <FontAwesomeIcon icon="fa-solid fa-table-columns" />
                                     <span className="nav_name">Dashboard</span>
                                 </a>
